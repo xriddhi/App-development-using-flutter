@@ -72,6 +72,7 @@ sort(x, decreasing=T)
 length(x)
 summary(x) #calculates 6 values: min,max,mean,quartile(Q1),Median(Q2),Mean(Q3)
 
+
 x<- c(41,68,92,31,37)
 which(x==max(x))
 which(x==min(x))
@@ -93,6 +94,32 @@ data.frame(v)
 
 
 
+#29.Dec
+
+abcd<-function(n){
+  x<-c(0,1)
+for(i in 1:n-2)
+{
+  x<-append(x,x[i],x[i+1],length(x))
+}
+x
+}; abcd(10)
+
+
+
+
+prime<-function(x){
+
+  i<-0
+  while(x>3){
+    for(j in 2:as.integer(sqrt(x))){
+      if((x%%j)==0) i<-1
+      
+    }
+  }
+ i 
+}
+prime(20)
 
 
 
