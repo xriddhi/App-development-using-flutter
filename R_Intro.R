@@ -111,22 +111,54 @@ x
 prime<-function(x){
 
   i<-0
-  while(x>3){
     for(j in 2:as.integer(sqrt(x))){
-      if((x%%j)==0) i<-1
-      
+      if((x%%j)==0) {i<-1; break}
     }
-  }
- i 
+    i
 }
 prime(20)
 
 
 
+x<-1:10
+p<-dbinom(x,10,0.3) #will calculate till 11 probabilities
+p<-round(p,4) #to roundoff p and store its value 
+data.frame(x,p)
+
+
+#FITTING OF BINOMIAL DISTRIBUTION
+x<-0:12
+f<-c(2,5,9,12,18,23,29,36,28,18,12,5,1)
+n<-max(x)
+N<-sum(f)
+Mean<-sum(x*f)/N
+p<-Mean/n
+Prob<-dbinom(x,n,p);Prob
+Prob<-round(Prob,4)
+EF<-N*Prob
+EF<-round(EF,0)
+N1<-sum(EF)
+A<-data.frame(x,f,Prob,EF)
+A
+plot(f,EF,"p",pch=16,xlab="observed frequency",ylab="expected frequency")
+abline(0,1)
 
 
 
+#FITTING OF POISSON DISTRIBUTION
 
+x<-0:12
+f<-c(2,5,9,12,18,23,31,36,28,18,12,5,1)
+n<-max(x)
+N<-sum(f)
+Mean<-sum(x*f)/N
+Lamda<-Mean
 
+Prob<-dpois(x,Lamda);Prob
+Prob<-round(Prob,4)
+EF<-N*Prob
+EF<-round(EF,0)
+A<-data.frame(x,f,Prob,EF)
+A
 
-
+#
